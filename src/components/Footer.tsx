@@ -187,6 +187,11 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/how-we-verify" className="text-stone-400 hover:text-white transition-colors block">
+                  How We Verify Listings
+                </Link>
+              </li>
+              <li>
                 <Link to="/about" className="text-stone-400 hover:text-white transition-colors block">
                   Business Directory Portal
                 </Link>
@@ -214,6 +219,7 @@ export const Footer: React.FC = () => {
           </div>
           <div className="flex flex-wrap gap-6 text-xs font-semibold uppercase tracking-widest text-stone-400">
             <Link to="/about" className="hover:text-white transition-colors">About</Link>
+            <Link to="/how-we-verify" className="hover:text-white transition-colors">How We Verify</Link>
             <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
             <Link to="/suggest-a-place" className="hover:text-white transition-colors">Suggest a Place</Link>
             <Link to="/hidden-gems" className="hover:text-white transition-colors">Hidden Gems</Link>

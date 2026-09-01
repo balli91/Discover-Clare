@@ -22,6 +22,7 @@ import { RegionsView } from './views/RegionsView';
 import { PlaceDetailView } from './views/PlaceDetailView';
 import { ShareYourClareView } from './views/ShareYourClareView';
 import { AboutView } from './views/AboutView';
+import { HowWeVerifyView } from './views/HowWeVerifyView';
 import { ContactView } from './views/ContactView';
 import { SuggestPlaceView } from './views/SuggestPlaceView';
 import { NotFoundView } from './views/NotFoundView';
@@ -99,6 +100,9 @@ export function App() {
         break;
       case 'about':
         navigate('/about');
+        break;
+      case 'how-we-verify':
+        navigate('/how-we-verify');
         break;
       case 'map':
         navigate('/explore');
@@ -271,6 +275,14 @@ export function App() {
           <Route
             path="/about"
             element={<AboutView />}
+          />
+          <Route
+            path="/how-we-verify"
+            element={<HowWeVerifyView />}
+          />
+          <Route
+            path="/verification"
+            element={<Navigate to="/how-we-verify" replace />}
           />
           <Route
             path="/contact"

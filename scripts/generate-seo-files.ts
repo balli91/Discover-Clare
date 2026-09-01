@@ -92,6 +92,7 @@ const staticRoutes: { path: string; priority: string; changefreq: SitemapEntry['
   { path: '/plan-your-trip', priority: '0.8', changefreq: 'weekly' },
   { path: '/share-your-clare', priority: '0.6', changefreq: 'monthly' },
   { path: '/about', priority: '0.5', changefreq: 'monthly' },
+  { path: '/how-we-verify', priority: '0.6', changefreq: 'monthly' },
   { path: '/contact', priority: '0.5', changefreq: 'monthly' },
   { path: '/suggest-a-place', priority: '0.6', changefreq: 'monthly' }
 ];

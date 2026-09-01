@@ -36,6 +36,7 @@ import { SEO } from '../components/SEO';
 import { generatePlaceJsonLd, generateBreadcrumbJsonLd } from '../utils/seo';
 import { VerifiedBadge } from '../components/VerifiedBadge';
 import { getPlaceOpeningStatus } from '../utils/discoveryEngine';
+import { getPlaceVerification, isPlaceVerified } from '../utils/verificationEngine';
 
 interface PlaceDetailViewProps {
   isSaved: (id: string) => boolean;
@@ -193,8 +194,8 @@ export const PlaceDetailView: React.FC<PlaceDetailViewProps> = ({
 
           {/* Floating Badges */}
           <div className="absolute top-4 sm:top-6 left-4 sm:left-6 flex flex-wrap gap-2 z-10">
-            {place.verificationStatus === 'verified' && (
-              <VerifiedBadge status={place.verificationStatus} variant="compact" />
+            {isPlaceVerified(place) && (
+              <VerifiedBadge verification={getPlaceVerification(place)} variant="compact" />
             )}
             {place.isHiddenGem && (
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#DCD6C8] text-[#2C3333] shadow-md border border-[#CBC4B4]">
@@ -306,12 +307,10 @@ export const PlaceDetailView: React.FC<PlaceDetailViewProps> = ({
         {/* Left Column: Narrative & Practical Guide */}
         <div className="lg:col-span-8 space-y-8">
           {/* Editorial Verification Trust Box */}
-          {place.verificationStatus === 'verified' && (
+          {isPlaceVerified(place) && (
             <VerifiedBadge
-              status={place.verificationStatus}
+              verification={getPlaceVerification(place)}
               variant="detailed"
-              lastVerifiedAt={place.lastVerifiedAt}
-              verifiedBy={place.verifiedBy}
             />
           )}
 

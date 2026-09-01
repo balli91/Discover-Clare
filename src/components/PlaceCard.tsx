@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { ClarePlace } from '../types';
 import { VerifiedBadge } from './VerifiedBadge';
+import { isPlaceVerified, getPlaceVerification } from '../utils/verificationEngine';
 
 interface PlaceCardProps {
   place: ClarePlace;
@@ -84,8 +85,8 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
         {/* Top Badges */}
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
           <div className="flex flex-wrap gap-1.5 pointer-events-auto">
-            {place.verificationStatus === 'verified' && (
-              <VerifiedBadge status={place.verificationStatus} variant="compact" />
+            {isPlaceVerified(place) && (
+              <VerifiedBadge verification={getPlaceVerification(place)} variant="compact" />
             )}
             {place.isHiddenGem && (
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-[#DCD6C8] text-[#2C3333] shadow-md border border-[#CBC4B4]">

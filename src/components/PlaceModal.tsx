@@ -19,6 +19,8 @@ import {
   BookOpen
 } from 'lucide-react';
 import { ClarePlace } from '../types';
+import { VerifiedBadge } from './VerifiedBadge';
+import { isPlaceVerified, getPlaceVerification } from '../utils/verificationEngine';
 
 interface PlaceModalProps {
   place: ClarePlace | null;
@@ -97,6 +99,9 @@ export const PlaceModal: React.FC<PlaceModalProps> = ({
 
           {/* Top floating badges */}
           <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+            {isPlaceVerified(place) && (
+              <VerifiedBadge verification={getPlaceVerification(place)} variant="compact" />
+            )}
             {place.isHiddenGem && (
               <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-[#DCD6C8] text-[#2C3333] shadow-md border border-[#CBC4B4]">
                 <Sparkles className="w-3.5 h-3.5 text-[#1B4B66]" />

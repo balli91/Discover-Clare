@@ -65,9 +65,18 @@ export const AboutView: React.FC = () => {
               Editorial Integrity & Verification
             </span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#2C3333]">
-            What "Verified by Discover Clare" Means
-          </h2>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#2C3333]">
+              What "Verified by Discover Clare" Means
+            </h2>
+            <Link
+              to="/how-we-verify"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#1B4B66] text-white hover:bg-[#153a4f] text-xs font-semibold shrink-0 transition-colors shadow-xs"
+            >
+              <span>Full Verification Policy</span>
+              <span>→</span>
+            </Link>
+          </div>
           <p className="text-[#5A6363] text-sm sm:text-base leading-relaxed font-light">
             When you see the <span className="font-semibold text-[#1B4B66]">Verified</span> badge beside a listing or natural spot on Discover Clare, here is what it communicates:
           </p>

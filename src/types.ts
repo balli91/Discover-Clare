@@ -44,10 +44,58 @@ export type ListingTier = 'free' | 'featured' | 'partner';
 
 /**
  * Editorial Trust System
- * Distinguishes between publication state and factual verification state
+ * Distinguishes between publication state, factual verification state, and commercial/promotional status
  */
-export type VerificationStatus = 'unverified' | 'verified' | 'needs_review';
+export type VerificationStatus = 
+  | 'unverified' 
+  | 'partially_verified' 
+  | 'verified' 
+  | 'needs_review';
+
 export type EditorialStatus = 'draft' | 'published' | 'hidden';
+
+export interface VerificationChecks {
+  location: boolean;
+  website: boolean;
+  contact: boolean;
+  openingHours: boolean;
+  description: boolean;
+  pricing: boolean;
+  images: boolean;
+  category: boolean;
+}
+
+export interface VerificationHistoryEntry {
+  date: string; // Machine-readable ISO format: "YYYY-MM-DD"
+  status: VerificationStatus;
+  notes?: string;
+  checks?: Partial<VerificationChecks>;
+  reviewedBy?: string;
+}
+
+export interface PlaceVerification {
+  status: VerificationStatus;
+  lastVerified: string | null; // Machine-readable ISO date: "YYYY-MM-DD" or null
+  lastVerifiedDisplay?: string | null; // Human-readable e.g. "August 2025" or "September 2026"
+  nextReview: string | null; // Machine-readable ISO date: "YYYY-MM-DD" or null
+  checks: VerificationChecks;
+  notes?: string;
+  history?: VerificationHistoryEntry[];
+  reviewedBy?: string;
+}
+
+/**
+ * Commercial / Visibility System (Strictly separate from Editorial Verification)
+ */
+export type PromotionStatus = 'none' | 'spotlight_candidate' | 'spotlight_partner';
+
+export interface PlacePromotion {
+  status: PromotionStatus;
+  tier?: 'standard' | 'premium';
+  startedAt?: string | null;
+  expiresAt?: string | null;
+  commercialNotes?: string;
+}
 
 export type LocalityId = 
   | 'ennis' 
@@ -222,13 +270,18 @@ export interface ClarePlace {
   isFeatured: boolean;
   listingTier?: ListingTier;
   
-  // Editorial Trust & Verification
+  // Editorial Trust & Verification System V1
+  verification?: PlaceVerification;
   verificationStatus?: VerificationStatus;
   verifiedAt?: string;
   lastVerifiedAt?: string;
   verificationNotes?: string;
   verifiedBy?: string;
   editorialStatus?: EditorialStatus;
+
+  // Commercial / Promotion Status (Strictly independent from Verification)
+  promotionStatus?: PromotionStatus;
+  promotion?: PlacePromotion;
 
   // Specialized Architectural Details
   walkDetails?: WalkDetails;
