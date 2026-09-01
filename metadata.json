@@ -1,0 +1,6 @@
+{
+  "name": "Discover Clare",
+  "description": "An independent, curated guide to County Clare, Ireland — exploring famous landmarks, hidden gems, wild Atlantic coastlines, walks, dining, stays, and local culture.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,9 @@
+# Discover Clare - Crawler Directives
+User-agent: *
+Allow: /
+
+# Prevent crawl engines from wasting crawl budget on dynamic query combinations
+Disallow: /*?*
+
+# Sitemap index location
+Sitemap: https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/sitemap.xml
