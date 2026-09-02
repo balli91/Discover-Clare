@@ -404,7 +404,7 @@ export const PlaceDetailView: React.FC<PlaceDetailViewProps> = ({
                 </div>
                 <div>
                   <span className="text-[#5A6363] block text-[10px] uppercase font-bold tracking-wider">Route Type</span>
-                  <span className="font-semibold text-[#2C3333] capitalize text-sm mt-0.5 block">{place.walkDetails.routeType.replace(/_/g, ' ')}</span>
+                  <span className="font-semibold text-[#2C3333] capitalize text-sm mt-0.5 block">{(place.walkDetails.routeType || 'Loop').replace(/_/g, ' ')}</span>
                 </div>
                 <div>
                   <span className="text-[#5A6363] block text-[10px] uppercase font-bold tracking-wider">Est. Duration</span>
@@ -770,7 +770,7 @@ export const PlaceDetailView: React.FC<PlaceDetailViewProps> = ({
                 </div>
                 <div>
                   <span className="text-[#5A6363] block text-[10px] uppercase font-bold tracking-wider">Booking</span>
-                  <span className="font-semibold text-[#2C3333] capitalize text-sm mt-0.5 block">{place.experienceDetails.bookingRequirements.replace(/_/g, ' ')}</span>
+                  <span className="font-semibold text-[#2C3333] capitalize text-sm mt-0.5 block">{place.experienceDetails.bookingRequirements ? place.experienceDetails.bookingRequirements.replace(/_/g, ' ') : (place.experienceDetails.bookingRequired ? 'Booking Required' : 'Walk-ins Welcome')}</span>
                 </div>
                 <div>
                   <span className="text-[#5A6363] block text-[10px] uppercase font-bold tracking-wider">Season</span>
