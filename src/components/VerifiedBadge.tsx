@@ -19,7 +19,7 @@ export const VerifiedBadge: React.FC<VerifiedBadgeProps> = ({
   verification,
   variant = 'compact',
   lastVerifiedAt,
-  verifiedBy = 'Discover Clare Editorial Team',
+  verifiedBy,
   className = '',
   showHowWeVerifyLink = true
 }) => {
@@ -35,12 +35,12 @@ export const VerifiedBadge: React.FC<VerifiedBadgeProps> = ({
     ? (verification.lastVerifiedDisplay || formatVerificationDate(verification.lastVerified))
     : (lastVerifiedAt ? formatVerificationDate(lastVerifiedAt) : undefined);
 
-  const effectiveReviewer = verification?.reviewedBy || verifiedBy;
+  const reviewerTitle = verification?.reviewedBy || verifiedBy || 'Discover Clare';
 
   if (variant === 'minimal') {
     return (
       <span 
-        title={`Verified by ${effectiveReviewer}${effectiveDate ? ` (${effectiveDate})` : ''}`}
+        title={`Verified by ${reviewerTitle}${effectiveDate ? ` (${effectiveDate})` : ''}`}
         className={`inline-flex items-center gap-1 text-[11px] font-medium text-[#1B4B66] bg-[#F0F4F8] px-2 py-0.5 rounded-full border border-[#D0DFE8] ${className}`}
       >
         <Check className="w-3 h-3 text-[#1B4B66]" />

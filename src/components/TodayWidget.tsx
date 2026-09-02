@@ -103,7 +103,9 @@ export const TodayWidget: React.FC<TodayWidgetProps> = ({ onSelectPlace }) => {
               <div className="relative aspect-[16/10] rounded-xl overflow-hidden mb-3 bg-[#2C3333]">
                 <img
                   src={place.heroImage}
-                  alt={`${place.name} in ${place.locationName}, County Clare`}
+                  alt={place.imageAlt || `${place.name} in ${place.locationName}, County Clare`}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-2 left-2 flex items-center gap-1">

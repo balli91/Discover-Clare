@@ -2,289 +2,337 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/explore</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/attractions</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/things-to-do</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/food-drink</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/stay</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/events</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/regions</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/hidden-gems</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/plan-your-trip</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/share-your-clare</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/about</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/how-we-verify</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/contact</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/suggest-a-place</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/regions/ennis</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/regions/north-clare-burren</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/regions/west-clare-atlantic-coast</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/regions/east-clare-lough-derg</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/regions/south-clare-shannon-estuary</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/cliffs-of-moher</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/the-burren-national-park</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/bunratty-castle-folk-park</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/loop-head-lighthouse</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/aillwee-burren-experience</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/doolin-cave</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/scattery-island</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/ennis-friary</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/quin-abbey</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/bridges-of-ross</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/pollnashanthana-churn</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/fanore-black-head-coastal-route</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/father-teds-house</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/saint-tola-goat-farm</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/holy-island-inis-cealtra</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/lahinch-surf-school</loc>
-    <lastmod>2026-08-31</lastmod>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/cliffs-of-moher</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/doolin-ferry-co</loc>
-    <lastmod>2026-08-31</lastmod>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/burren-national-park</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/doolin-traditional-music-trail</loc>
-    <lastmod>2026-08-31</lastmod>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/aillwee-burren-experience</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/burren-way-walking-trail</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/kilkee-sea-kayaking</loc>
-    <lastmod>2026-08-31</lastmod>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/doolin-cave-stalactite</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/lough-derg-boat-hire</loc>
-    <lastmod>2026-08-31</lastmod>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/the-burren-way-national-trail</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/fanore-blackhead-green-road</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/cliffs-of-moher-cruise-doolin</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/traditional-music-session-crawl</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/st-tola-goat-farm-tours</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/glencquin-house-father-ted</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/linnanes-lobster-bar</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/wild-honey-inn</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/roadside-tavern-burren-smokehouse</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/hugos-bakery-lahinch</loc>
-    <lastmod>2026-08-31</lastmod>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/roadside-tavern-microbrewery</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/gregans-castle-hotel</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/armada-hotel-spanish-point</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/fiddle-and-bow-hotel</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/burren-glamping</loc>
-    <lastmod>2026-08-31</lastmod>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/burren-glamping-farm</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/loop-head-lighthouse</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/bridges-of-ross</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/pollnashanthana-churn-kilkee</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/surfing-lahinch-bay</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/sea-kayaking-kilkee-caves</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/hugos-bakery-lahinch</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/armada-hotel-spanish-point</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/inis-cealtra-holy-island</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/lough-derg-blueway-kayaking</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/killaloe-farmers-market</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/wood-brothers-cafe-killaloe</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/lakeside-hotel-killaloe</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/bunratty-castle-folk-park</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/shannon-aviation-museum</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/mooghaun-bronze-age-hillfort</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/durty-nellys-pub-bunratty</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/dromoland-castle-estate</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ais-dev-p6yv55qicziodilndudqpe-316126851508.europe-west2.run.app/places/bunratty-manor-hotel</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

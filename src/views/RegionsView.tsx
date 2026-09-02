@@ -5,7 +5,7 @@ import { ClarePlace } from '../types';
 import { CLARE_REGIONS, CLARE_PUBLISHED_PLACES, normalizeRegionId, getRegionInfo } from '../data/clareData';
 import { PlaceCard } from '../components/PlaceCard';
 import { SEO } from '../components/SEO';
-import { generateBreadcrumbJsonLd } from '../utils/seo';
+import { generateBreadcrumbJsonLd, generateRegionJsonLd } from '../utils/seo';
 
 interface RegionsViewProps {
   onSelectPlace: (place: ClarePlace) => void;
@@ -48,7 +48,11 @@ export const RegionsView: React.FC<RegionsViewProps> = ({
         canonical={isSpecificRegion ? `/regions/${currentRegion.id}` : '/regions'}
         image={currentRegion.heroImage}
         imageAlt={`${currentRegion.name}, County Clare`}
-        jsonLd={generateBreadcrumbJsonLd(breadcrumbs)}
+        ogTitle={isSpecificRegion ? `${currentRegion.name} Region Guide | Discover Clare` : 'The 5 Regions of County Clare | Discover Clare'}
+        ogDescription={currentRegion.description}
+        twitterTitle={isSpecificRegion ? `${currentRegion.name} | Discover Clare` : 'The 5 Regions of County Clare | Discover Clare'}
+        twitterDescription={currentRegion.description}
+        jsonLd={isSpecificRegion ? generateRegionJsonLd(currentRegion, breadcrumbs) : generateBreadcrumbJsonLd(breadcrumbs)}
       />
 
       {/* Header Banner */}
@@ -108,6 +112,8 @@ export const RegionsView: React.FC<RegionsViewProps> = ({
           <img
             src={currentRegion.heroImage}
             alt={currentRegion.name}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#2C3333] via-[#2C3333]/40 to-transparent"></div>

@@ -92,7 +92,8 @@ export const PlaceModal: React.FC<PlaceModalProps> = ({
         <div className="relative h-64 sm:h-80 md:h-96 w-full bg-[#2C3333]">
           <img
             src={place.heroImage}
-            alt={place.name}
+            alt={place.imageAlt || place.name}
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#2C3333] via-[#2C3333]/40 to-transparent"></div>

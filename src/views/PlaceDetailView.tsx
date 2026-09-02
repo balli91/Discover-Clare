@@ -140,12 +140,16 @@ export const PlaceDetailView: React.FC<PlaceDetailViewProps> = ({
   return (
     <article className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
       <SEO
-        title={`${place.name} | Discover Clare`}
-        description={`${place.name} in ${place.locationName}, County Clare: ${place.tagline} Practical visitor guide, coordinates, local tips, and travel details.`}
+        title={place.seoTitle || `${place.name} | Discover Clare`}
+        description={place.seoDescription || `${place.name} in ${place.locationName}, County Clare: ${place.tagline} Practical visitor guide, coordinates, local tips, and travel details.`}
         canonical={`/places/${place.slug}`}
         image={place.heroImage}
         imageAlt={descriptiveImageAlt}
         type="article"
+        ogTitle={`${place.name} — Visitor Guide & Location`}
+        ogDescription={place.description || place.tagline}
+        twitterTitle={`${place.name} | Discover Clare`}
+        twitterDescription={place.description || place.tagline}
         jsonLd={[placeJsonLd, breadcrumbJsonLd]}
       />
 
@@ -188,6 +192,8 @@ export const PlaceDetailView: React.FC<PlaceDetailViewProps> = ({
             src={place.heroImage}
             alt={descriptiveImageAlt}
             loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#2C3333] via-[#2C3333]/50 to-transparent"></div>
@@ -992,7 +998,9 @@ export const PlaceDetailView: React.FC<PlaceDetailViewProps> = ({
                     <img
                       src={rel.heroImage}
                       alt={rel.name}
-                      className="w-20 h-20 rounded-xl object-cover shrink-0"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-20 h-20 rounded-xl object-cover bg-[#F0F4F8] shrink-0"
                     />
                     <div className="min-w-0 flex-1">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-[#1B4B66] block truncate">

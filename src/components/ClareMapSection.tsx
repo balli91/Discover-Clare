@@ -254,6 +254,8 @@ export const ClareMapSection: React.FC<ClareMapSectionProps> = ({
                 <img
                   src={activePin.heroImage}
                   alt={activePin.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute top-2.5 left-2.5 flex gap-1.5">

@@ -1,4 +1,4 @@
-import { ClarePlace } from '../types';
+import { ClarePlace, RegionInfo } from '../types';
 import { getSiteUrl, getCanonicalUrl, SITE_NAME } from '../config/seo';
 
 /**
@@ -25,11 +25,18 @@ export function formatMetaDescription(text: string, maxLength = 155): string {
  * Maps a ClarePlace to its most accurate Schema.org type based on real dataset properties.
  */
 export function getSchemaTypeForPlace(place: ClarePlace): string {
+  if (place.contentType === 'beach') {
+    return 'Beach';
+  }
+  if (place.contentType === 'walk' || place.contentType === 'scenic_route') {
+    return 'Park';
+  }
+
   switch (place.type) {
     case 'food': {
-      const catLower = place.category.toLowerCase();
+      const catLower = (place.category || '').toLowerCase();
       const nameLower = place.name.toLowerCase();
-      if (catLower.includes('cafe') || catLower.includes('bakery') || nameLower.includes('bakery')) {
+      if (catLower.includes('cafe') || catLower.includes('bakery') || nameLower.includes('bakery') || nameLower.includes('coffee')) {
         return 'CafeOrCoffeeShop';
       }
       if (catLower.includes('pub') || catLower.includes('tavern') || catLower.includes('bar')) {
@@ -38,18 +45,22 @@ export function getSchemaTypeForPlace(place: ClarePlace): string {
       return 'Restaurant';
     }
     case 'stay': {
-      const catLower = place.category.toLowerCase();
-      if (catLower.includes('hotel') || place.name.toLowerCase().includes('hotel')) {
+      const catLower = (place.category || '').toLowerCase();
+      const nameLower = place.name.toLowerCase();
+      if (catLower.includes('hotel') || nameLower.includes('hotel')) {
         return 'Hotel';
       }
       if (catLower.includes('b&b') || catLower.includes('bed & breakfast')) {
         return 'BedAndBreakfast';
       }
+      if (catLower.includes('camp') || catLower.includes('glamp')) {
+        return 'Campground';
+      }
       return 'LodgingBusiness';
     }
     case 'activity': {
-      const catLower = place.category.toLowerCase();
-      if (catLower.includes('surf') || catLower.includes('kayak') || catLower.includes('trail') || catLower.includes('walk')) {
+      const catLower = (place.category || '').toLowerCase();
+      if (catLower.includes('surf') || catLower.includes('kayak') || catLower.includes('sport') || catLower.includes('dive')) {
         return 'SportsActivityLocation';
       }
       return 'TouristAttraction';
@@ -63,7 +74,7 @@ export function getSchemaTypeForPlace(place: ClarePlace): string {
 
 /**
  * Generates valid JSON-LD structured data for a ClarePlace using only real, verified dataset fields.
- * strictly adheres to the truth-in-data policy (no invented reviews, ratings, or fake hours).
+ * Strictly adheres to the truth-in-data policy (no invented reviews, ratings, or fake hours).
  */
 export function generatePlaceJsonLd(place: ClarePlace, canonicalUrl?: string): Record<string, unknown> {
   const url = canonicalUrl || getCanonicalUrl(`/places/${place.slug}`);
@@ -124,6 +135,39 @@ export function generateBreadcrumbJsonLd(items: { name: string; url: string }[])
       item: item.url.startsWith('http') ? item.url : getCanonicalUrl(item.url)
     }))
   };
+}
+
+/**
+ * Generates TouristDestination structured data for a region page.
+ */
+export function generateRegionJsonLd(region: RegionInfo, breadcrumbs?: { name: string; url: string }[]): Record<string, unknown>[] {
+  const regionUrl = getCanonicalUrl(`/regions/${region.id}`);
+
+  const regionSchema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'TouristDestination',
+    name: region.name,
+    description: region.description,
+    url: regionUrl,
+    image: region.heroImage,
+    containedInPlace: {
+      '@type': 'AdministrativeArea',
+      name: 'County Clare',
+      address: {
+        '@type': 'PostalAddress',
+        addressRegion: 'County Clare',
+        addressCountry: 'IE'
+      }
+    }
+  };
+
+  const schemas: Record<string, unknown>[] = [regionSchema];
+
+  if (breadcrumbs && breadcrumbs.length > 0) {
+    schemas.push(generateBreadcrumbJsonLd(breadcrumbs));
+  }
+
+  return schemas;
 }
 
 /**

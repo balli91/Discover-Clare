@@ -77,8 +77,10 @@ export const SavedModal: React.FC<SavedModalProps> = ({
               >
                 <img
                   src={place.heroImage}
-                  alt={place.name}
-                  className="w-16 h-16 rounded-xl object-cover shrink-0 cursor-pointer"
+                  alt={place.imageAlt || place.name}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-16 h-16 rounded-xl object-cover bg-[#F0F4F8] shrink-0 cursor-pointer"
                   onClick={() => {
                     navigate(`/places/${place.slug}`);
                     onClose();

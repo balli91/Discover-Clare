@@ -76,6 +76,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <img
             src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=2000&q=85"
             alt="Cliffs of Moher and County Clare Atlantic Coastline"
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover object-center scale-105"
           />
           {/* Natural Vignette Overlay */}
@@ -278,6 +280,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <img
                 src={region.heroImage}
                 alt={region.name}
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#2C3333] via-[#2C3333]/50 to-[#1B4B66]/30"></div>
@@ -351,6 +355,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       <img
                         src={itinerary.heroImage}
                         alt={itinerary.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <span className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full text-xs font-bold bg-[#2C3333]/90 text-white backdrop-blur-sm">
@@ -409,6 +415,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <img
                 src={photo.imageUrl}
                 alt={photo.title}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#2C3333]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3 flex flex-col justify-end text-white">

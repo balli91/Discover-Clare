@@ -1,4 +1,4 @@
-import { ClarePlace, PlaceVerification, VerificationStatus, VerificationChecks, VerificationHistoryEntry } from '../types';
+import { ClarePlace, PlaceVerification, VerificationStatus, VerificationChecks } from '../types';
 
 /**
  * Empty/default unverified check state (all false)
@@ -15,7 +15,7 @@ export const DEFAULT_UNVERIFIED_CHECKS: VerificationChecks = {
 };
 
 /**
- * Standard complete check state for verified listings
+ * Standard complete check state template for fully audited listings
  */
 export const COMPLETE_VERIFIED_CHECKS: VerificationChecks = {
   location: true,
@@ -31,14 +31,15 @@ export const COMPLETE_VERIFIED_CHECKS: VerificationChecks = {
 /**
  * Resolves the canonical PlaceVerification object for any ClarePlace.
  * Never fabricates data: respects explicit existing verification state,
- * or safely defaults unreviewed listings to 'unverified'.
+ * and preserves existing status without inventing missing dates, checks, or history.
  */
 export function getPlaceVerification(place: ClarePlace): PlaceVerification {
+  // 1. Canonical source: If place.verification is explicitly defined, use it directly
   if (place.verification) {
     return place.verification;
   }
 
-  // Derive status from existing explicit fields
+  // 2. Legacy fallback: Derive status from existing explicit legacy fields without fabricating details
   const status: VerificationStatus = 
     place.verificationStatus === 'verified' ? 'verified' :
     place.verificationStatus === 'partially_verified' ? 'partially_verified' :
@@ -46,27 +47,15 @@ export function getPlaceVerification(place: ClarePlace): PlaceVerification {
     'unverified';
 
   if (status === 'verified') {
-    const verifiedIso = place.verifiedAt || '2025-06-01';
-    const displayDate = place.lastVerifiedAt || 'August 2025';
-    const reviewer = place.verifiedBy || 'Discover Clare Editorial Team';
-
-    const historyEntry: VerificationHistoryEntry = {
-      date: verifiedIso,
-      status: 'verified',
-      notes: place.verificationNotes || 'Editorial baseline review and factual verification completed.',
-      checks: { ...COMPLETE_VERIFIED_CHECKS },
-      reviewedBy: reviewer,
-    };
-
     return {
       status: 'verified',
-      lastVerified: verifiedIso,
-      lastVerifiedDisplay: displayDate,
-      nextReview: '2026-06-01',
-      checks: { ...COMPLETE_VERIFIED_CHECKS },
-      notes: place.verificationNotes || 'Independently fact-checked by Discover Clare editorial desk.',
-      history: [historyEntry],
-      reviewedBy: reviewer,
+      lastVerified: place.verifiedAt || null,
+      lastVerifiedDisplay: place.lastVerifiedAt || null,
+      nextReview: null,
+      checks: undefined, // Do not invent checks if not explicitly provided
+      notes: place.verificationNotes || undefined,
+      history: [],
+      reviewedBy: place.verifiedBy || undefined,
     };
   }
 
@@ -76,24 +65,10 @@ export function getPlaceVerification(place: ClarePlace): PlaceVerification {
       lastVerified: place.verifiedAt || null,
       lastVerifiedDisplay: place.lastVerifiedAt || null,
       nextReview: null,
-      checks: {
-        location: true,
-        website: false,
-        contact: false,
-        openingHours: false,
-        description: true,
-        pricing: false,
-        images: true,
-        category: true,
-      },
-      notes: place.verificationNotes || 'Preliminary desk review completed. Full verification pending.',
-      history: place.verifiedAt ? [{
-        date: place.verifiedAt,
-        status: 'partially_verified',
-        notes: place.verificationNotes || 'Preliminary desk review completed.',
-        reviewedBy: place.verifiedBy || 'Discover Clare Editorial Team',
-      }] : [],
-      reviewedBy: place.verifiedBy,
+      checks: undefined,
+      notes: place.verificationNotes || undefined,
+      history: [],
+      reviewedBy: place.verifiedBy || undefined,
     };
   }
 
@@ -103,10 +78,10 @@ export function getPlaceVerification(place: ClarePlace): PlaceVerification {
       lastVerified: place.verifiedAt || null,
       lastVerifiedDisplay: place.lastVerifiedAt || null,
       nextReview: null,
-      checks: { ...DEFAULT_UNVERIFIED_CHECKS },
-      notes: place.verificationNotes || 'Listing flagged for editorial audit and factual update.',
+      checks: undefined,
+      notes: place.verificationNotes || undefined,
       history: [],
-      reviewedBy: place.verifiedBy,
+      reviewedBy: place.verifiedBy || undefined,
     };
   }
 
@@ -116,8 +91,8 @@ export function getPlaceVerification(place: ClarePlace): PlaceVerification {
     lastVerified: null,
     lastVerifiedDisplay: null,
     nextReview: null,
-    checks: { ...DEFAULT_UNVERIFIED_CHECKS },
-    notes: '',
+    checks: undefined,
+    notes: undefined,
     history: [],
   };
 }

@@ -78,7 +78,7 @@ export interface PlaceVerification {
   lastVerified: string | null; // Machine-readable ISO date: "YYYY-MM-DD" or null
   lastVerifiedDisplay?: string | null; // Human-readable e.g. "August 2025" or "September 2026"
   nextReview: string | null; // Machine-readable ISO date: "YYYY-MM-DD" or null
-  checks: VerificationChecks;
+  checks?: Partial<VerificationChecks>;
   notes?: string;
   history?: VerificationHistoryEntry[];
   reviewedBy?: string;

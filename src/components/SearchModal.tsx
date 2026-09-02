@@ -197,7 +197,9 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   >
                     <img
                       src={place.heroImage}
-                      alt={place.name}
+                      alt={place.imageAlt || place.name}
+                      loading="lazy"
+                      decoding="async"
                       className="w-14 h-14 rounded-xl object-cover bg-[#F0F4F8] shrink-0"
                     />
                     <div className="flex-1 min-w-0">

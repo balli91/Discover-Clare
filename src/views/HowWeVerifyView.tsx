@@ -180,7 +180,6 @@ export const HowWeVerifyView: React.FC = () => {
           <VerifiedBadge 
             status="verified" 
             variant="detailed" 
-            lastVerifiedAt="August 2025" 
             showHowWeVerifyLink={false}
           />
         </div>
