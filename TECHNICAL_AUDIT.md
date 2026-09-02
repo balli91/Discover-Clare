@@ -259,9 +259,9 @@ Perform a forensic technical SEO audit to determine whether Discover Clare's cur
 
 ## 7. Unresolved Questions & Documentation Notices
 
-1. **Audit Document Duplication (Documentation Notice)**:
-   - Both `TECHNICAL_AUDIT.md` (uppercase) and `technical_audit.md` (lowercase) exist in the project root.
-   - `TECHNICAL_AUDIT.md` is treated as the primary authoritative living audit record. Both files are maintained in synchronization to prevent divergence.
+1. **Audit Document Authority**:
+   - `TECHNICAL_AUDIT.md` is the sole authoritative living technical audit document for Discover Clare.
+   - Any duplicate or secondary audit markdown files have been removed to maintain absolute single-source-of-truth integrity.
 2. **Hosting & Deployment Architecture Decision (Unresolved Question)**:
    - Does Discover Clare intend to remain on static SPA hosting (where build-time SSG/prerendering is the natural optimization), or will a Node / Cloud Run backend service be used for runtime rendering?
 3. **Locality & Event Routing Expansion (Unresolved Question)**:
@@ -269,7 +269,7 @@ Perform a forensic technical SEO audit to determine whether Discover Clare's cur
 
 ---
 
-## 8. Approved Roadmap Status
+## 8. Approved Roadmap Status & POC Verification Record
 
 - **Phase 1: Core Navigation & Editorial Integrity** — **COMPLETED & VERIFIED**
 - **Phase 2.1: Dynamic SEO Head Management Foundation** — **COMPLETED & VERIFIED**
@@ -277,8 +277,31 @@ Perform a forensic technical SEO audit to determine whether Discover Clare's cur
 - **Phase 2.3: SEO Foundation, Crawlability & Indexation Audit** — **COMPLETED**
 - **Phase 2.4: Hybrid SSG + React Architecture Assessment** — **ASSESSMENT COMPLETED**
   - **Approved Architectural Direction**: **Hybrid SSG + React** (Public/indexable content pages will be statically pre-rendered as real HTML for maximum SEO robustness and crawlability, while interactive functionality remains client-side React).
-  - **Implementation Status**: **NOT YET IMPLEMENTED / NOT YET STARTED**. Concrete implementation technologies and pipelines remain **PROPOSED — AWAITING APPROVAL**.
-- **Next Implementation Phase**: **Phase 2.5 — SSG Implementation (Pending project owner approval of implementation approach)**.
+- **Phase 2.5: Hybrid SSG Implementation Design & Proof-of-Concept Plan** — **DESIGN COMPLETED**
+- **Phase 2.5B: Hybrid SSG Proof-of-Concept Implementation & Verification** — **COMPLETED & VERIFIED**
+  - **Proof-of-Concept Scope**: Two-route static pre-rendering pilot (`/` and `/places/cliffs-of-moher`) utilizing `tsx` + `StaticRouter` + `react-dom/server` with isomorphic SEO metadata extraction (`src/utils/documentMetaCore.ts`), `hydrateRoot()` client-side hydration, and zero new runtime dependencies.
+
+### 8.1 Proof-of-Concept Verification Breakdown
+
+#### PROVEN BY POC:
+- **Static HTML Generation**: Generated deterministic static HTML snapshots for `/` (`dist/index.html` — 186 KB) and `/places/cliffs-of-moher` (`dist/places/cliffs-of-moher/index.html` — 51 KB) with complete semantic HTML prose inside `#root`.
+- **Build-Time Metadata & Tags**: Pre-rendered exact route-specific `<title>`, `<meta name="description">`, `<link rel="canonical">`, Open Graph tags, and Twitter Cards into initial raw HTML without requiring JavaScript execution.
+- **Embedded Schema.org JSON-LD**: Injected valid `TouristAttraction`, `BreadcrumbList`, and `WebSite` structured data schemas directly into raw HTML `<head>`.
+- **Isomorphic Architecture**: Shared resolution logic via `documentMetaCore.ts` ensures complete parity between build-time server rendering and client-side `useDocumentMeta` runtime updates.
+- **Hydration Safety**: Adapted `src/utils/useSavedPlaces.ts` to defer `localStorage` reading until after mount, avoiding hydration mismatch warnings.
+- **Draft Safety**: Verified that only published catalog items are generated; 142 unverified draft items remain strictly excluded.
+- **Build Repeatability**: Verified clean repeatable builds via `"tsx scripts/generate-seo-files.ts && vite build && tsx scripts/prerender.ts"`. Pre-render execution time measured at ~224ms for 2 routes (total build ~8.5s).
+
+#### NOT YET PROVEN / SCOPE LIMITATIONS:
+- **Full Catalog SSG**: Scaling from 2 test routes to all 56+ public sitemap routes (regions, category views, static informational pages, and remaining 35 published place guides) is designed but not yet generated (scheduled for Phase 2.6).
+- **Production Hosting Behaviour**: Behaviour in production hosting/CDN edge tiers (e.g. Firebase Hosting, Cloud Run edge cache headers).
+- **True HTTP 404 Status Codes (`SEO-02`)**: Remains **UNRESOLVED**. Static hosting delivers 200 OK with client-side noindex/404 view rather than native HTTP 404 response headers.
+- **Crawler Directives vs Query Strings (`SEO-03`)**: Remains **UNRESOLVED**. Internal breadcrumb links containing query strings (e.g., `/explore?locality=...`) remain disallowed by `robots.txt`.
+- **Browser Automation in Container**: Direct browser automation (Playwright/Puppeteer) is unavailable in the sandboxed container environment; client hydration relies on node SSR validation and standard React 19 hydration architecture.
+- **Large-Scale Build Performance**: Performance when pre-rendering hundreds of dynamic routes.
+- **External Database Integration**: Firestore/Cloud SQL as future dynamic build-time data sources.
+
+- **Next Step**: **Phase 2.6 — Full Hybrid SSG Rollout (All 56+ Public Routes)**.
 
 
 

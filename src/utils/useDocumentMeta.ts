@@ -1,39 +1,15 @@
 import { useEffect } from 'react';
+import { SITE_NAME } from '../config/seo';
 import {
-  SITE_NAME,
-  DEFAULT_TITLE,
-  DEFAULT_DESCRIPTION,
-  DEFAULT_OG_IMAGE,
-  getCanonicalUrl
-} from '../config/seo';
-import { formatMetaDescription } from './seo';
+  DocumentMetaOptions,
+  ResolvedDocumentMeta,
+  resolveDocumentMeta,
+  MANAGED_DATA_ATTR,
+  MANAGED_ATTR_VALUE,
+  JSON_LD_SCRIPT_ID
+} from './documentMetaCore';
 
-export interface DocumentMetaOptions {
-  title?: string;
-  description?: string;
-  canonicalUrl?: string;
-  canonical?: string; // alias for canonicalUrl
-  image?: string;
-  imageAlt?: string;
-  type?: 'website' | 'article' | 'place' | string;
-  noIndex?: boolean;
-  ogTitle?: string;
-  ogDescription?: string;
-  ogImage?: string;
-  ogUrl?: string;
-  ogType?: string;
-  ogImageAlt?: string;
-  twitterCard?: 'summary' | 'summary_large_image' | 'app' | 'player';
-  twitterTitle?: string;
-  twitterDescription?: string;
-  twitterImage?: string;
-  twitterImageAlt?: string;
-  jsonLd?: Record<string, unknown> | Record<string, unknown>[] | null;
-}
-
-const MANAGED_DATA_ATTR = 'data-managed-by';
-const MANAGED_ATTR_VALUE = 'discover-clare-seo';
-const JSON_LD_SCRIPT_ID = 'discover-clare-seo-json-ld';
+export type { DocumentMetaOptions, ResolvedDocumentMeta };
 
 /**
  * Idempotently updates or creates a <meta> element in document.head.
@@ -128,131 +104,71 @@ function setJsonLdScript(data: Record<string, unknown> | Record<string, unknown>
  * and JSON-LD structured data without external packages.
  */
 export function useDocumentMeta(options: DocumentMetaOptions) {
-  const {
-    title,
-    description,
-    canonicalUrl,
-    canonical,
-    image,
-    imageAlt,
-    type = 'website',
-    noIndex = false,
-    ogTitle,
-    ogDescription,
-    ogImage,
-    ogUrl,
-    ogType,
-    ogImageAlt,
-    twitterCard = 'summary_large_image',
-    twitterTitle,
-    twitterDescription,
-    twitterImage,
-    twitterImageAlt,
-    jsonLd
-  } = options;
-
-  // Resolve Title: append site brand if not present
-  const resolvedTitle = title
-    ? title.includes(SITE_NAME)
-      ? title
-      : `${title} | ${SITE_NAME}`
-    : DEFAULT_TITLE;
-
-  // Resolve Description: format and truncate to optimal length
-  const resolvedDescription = description
-    ? formatMetaDescription(description, 160)
-    : DEFAULT_DESCRIPTION;
-
-  // Resolve Canonical URL
-  const rawCanonical = canonicalUrl || canonical;
-  const resolvedCanonical = rawCanonical ? getCanonicalUrl(rawCanonical) : undefined;
-
-  // Resolve Images
-  const resolvedImage = ogImage || image || DEFAULT_OG_IMAGE;
-  const resolvedImageAlt = ogImageAlt || imageAlt || resolvedTitle;
-
-  // Resolve Open Graph fields
-  const resolvedOgTitle = ogTitle || resolvedTitle;
-  const resolvedOgDescription = ogDescription || resolvedDescription;
-  const resolvedOgType = ogType || type;
-  const resolvedOgUrl = ogUrl ? getCanonicalUrl(ogUrl) : resolvedCanonical;
-
-  // Resolve Twitter fields
-  const resolvedTwitterTitle = twitterTitle || resolvedOgTitle;
-  const resolvedTwitterDescription = twitterDescription || resolvedOgDescription;
-  const resolvedTwitterImage = twitterImage || resolvedImage;
-  const resolvedTwitterImageAlt = twitterImageAlt || resolvedImageAlt;
-
-  // Serialize jsonLd for dependency comparison
-  const jsonLdSerialized = jsonLd ? JSON.stringify(jsonLd) : null;
+  const resolved = resolveDocumentMeta(options);
+  const rawCanonical = options.canonicalUrl || options.canonical;
+  const jsonLdSerialized = resolved.jsonLd ? JSON.stringify(resolved.jsonLd) : null;
 
   useEffect(() => {
     // 1. Document Title
-    document.title = resolvedTitle;
+    document.title = resolved.title;
 
     // 2. Primary Meta Description
-    setMetaTag('name', 'description', resolvedDescription);
+    setMetaTag('name', 'description', resolved.description);
 
     // 3. Robots meta (Index / Noindex)
-    if (noIndex) {
+    if (resolved.noIndex) {
       setMetaTag('name', 'robots', 'noindex, follow');
     } else {
       setMetaTag('name', 'robots', 'index, follow');
     }
 
     // 4. Canonical Link
-    if (noIndex && !rawCanonical) {
+    if (resolved.noIndex && !rawCanonical) {
       setCanonicalLink(null);
     } else {
-      setCanonicalLink(resolvedCanonical || null);
+      setCanonicalLink(resolved.canonical || null);
     }
 
     // 5. Open Graph Meta Tags
     setMetaTag('property', 'og:site_name', SITE_NAME);
-    setMetaTag('property', 'og:title', resolvedOgTitle);
-    setMetaTag('property', 'og:description', resolvedOgDescription);
-    setMetaTag('property', 'og:type', resolvedOgType);
-    if (resolvedOgUrl) {
-      setMetaTag('property', 'og:url', resolvedOgUrl);
+    setMetaTag('property', 'og:title', resolved.ogTitle);
+    setMetaTag('property', 'og:description', resolved.ogDescription);
+    setMetaTag('property', 'og:type', resolved.ogType);
+    if (resolved.ogUrl) {
+      setMetaTag('property', 'og:url', resolved.ogUrl);
     } else {
       setMetaTag('property', 'og:url', null);
     }
-    setMetaTag('property', 'og:image', resolvedImage);
-    setMetaTag('property', 'og:image:alt', resolvedImageAlt);
+    setMetaTag('property', 'og:image', resolved.image);
+    setMetaTag('property', 'og:image:alt', resolved.imageAlt);
 
     // 6. Twitter / X Cards
-    setMetaTag('name', 'twitter:card', twitterCard);
-    setMetaTag('name', 'twitter:title', resolvedTwitterTitle);
-    setMetaTag('name', 'twitter:description', resolvedTwitterDescription);
-    setMetaTag('name', 'twitter:image', resolvedTwitterImage);
-    setMetaTag('name', 'twitter:image:alt', resolvedTwitterImageAlt);
+    setMetaTag('name', 'twitter:card', resolved.twitterCard);
+    setMetaTag('name', 'twitter:title', resolved.twitterTitle);
+    setMetaTag('name', 'twitter:description', resolved.twitterDescription);
+    setMetaTag('name', 'twitter:image', resolved.twitterImage);
+    setMetaTag('name', 'twitter:image:alt', resolved.twitterImageAlt);
 
     // 7. Structured Data (JSON-LD)
-    setJsonLdScript(jsonLd);
-
-    // Cleanup: When unmounting, if this was the last managed SEO instance,
-    // clear JSON-LD to prevent stale schema from sticking on non-managed pages.
-    return () => {
-      // In SPA route transitions, the next view's useEffect will run and overwrite
-      // the meta tags. If a route without useDocumentMeta mounts, we remove JSON-LD.
-    };
+    setJsonLdScript(resolved.jsonLd);
   }, [
-    resolvedTitle,
-    resolvedDescription,
-    resolvedCanonical,
+    resolved.title,
+    resolved.description,
+    resolved.canonical,
     rawCanonical,
-    resolvedImage,
-    resolvedImageAlt,
-    resolvedOgTitle,
-    resolvedOgDescription,
-    resolvedOgType,
-    resolvedOgUrl,
-    twitterCard,
-    resolvedTwitterTitle,
-    resolvedTwitterDescription,
-    resolvedTwitterImage,
-    resolvedTwitterImageAlt,
-    noIndex,
+    resolved.image,
+    resolved.imageAlt,
+    resolved.ogTitle,
+    resolved.ogDescription,
+    resolved.ogType,
+    resolved.ogUrl,
+    resolved.twitterCard,
+    resolved.twitterTitle,
+    resolved.twitterDescription,
+    resolved.twitterImage,
+    resolved.twitterImageAlt,
+    resolved.noIndex,
     jsonLdSerialized
   ]);
 }
+

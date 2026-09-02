@@ -3,22 +3,30 @@ import { useState, useEffect } from 'react';
 const SAVED_STORAGE_KEY = 'discover_clare_saved_v1';
 
 export function useSavedPlaces() {
-  const [savedIds, setSavedIds] = useState<string[]>(() => {
-    try {
-      const stored = localStorage.getItem(SAVED_STORAGE_KEY);
-      return stored ? JSON.parse(stored) : [];
-    } catch {
-      return [];
-    }
-  });
+  const [savedIds, setSavedIds] = useState<string[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    try {
+      const stored = localStorage.getItem(SAVED_STORAGE_KEY);
+      if (stored) {
+        setSavedIds(JSON.parse(stored));
+      }
+    } catch {
+      // Ignore localStorage read errors
+    } finally {
+      setIsLoaded(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isLoaded) return;
     try {
       localStorage.setItem(SAVED_STORAGE_KEY, JSON.stringify(savedIds));
     } catch (e) {
       console.error('Failed to save to localStorage', e);
     }
-  }, [savedIds]);
+  }, [savedIds, isLoaded]);
 
   const toggleSave = (id: string) => {
     setSavedIds(prev => 
@@ -30,3 +38,4 @@ export function useSavedPlaces() {
 
   return { savedIds, toggleSave, isSaved, count: savedIds.length };
 }
+
